@@ -63,10 +63,6 @@ function renderRibbon(active) {
   const items = [
     { id: "dashboard", label: "Dashboard", href: "dashboard.html", icon: "dashboard" },
     { id: "scan", label: "New Scan", href: "scan.html", icon: "scan" },
-    { id: "threat", label: "Threat Intel", href: "dashboard.html#threat", icon: "threat" },
-    { id: "traffic", label: "Network Traffic", href: "dashboard.html#traffic", icon: "traffic" },
-    { id: "assets", label: "Assets", href: "dashboard.html#assets", icon: "assets" },
-    { id: "logs", label: "Logs", href: "dashboard.html#logs", icon: "logs" },
     { id: "report", label: "Reports", href: "report.html", icon: "report" },
   ];
   const links = items
