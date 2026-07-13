@@ -116,7 +116,7 @@ function renderRibbon(active) {
     { id: "dashboard", label: "Dashboard", href: "dashboard.html", icon: "dashboard" },
     { id: "scan", label: "New Scan", href: "scan.html", icon: "scan" },
     { id: "report", label: "Reports", href: "report.html", icon: "report" },
-    { id: "email", label: "Email", href: "emails.html", icon: "email" },
+    { id: "email", label: "Email", href: "email.html", icon: "email" },
   ];
   const links = items
     .map(
@@ -193,25 +193,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const slider = document.querySelector(".tab-slider");
 
-function moveSlider(btn){
-    if (!slider || !btn) return;
-    const container = btn.closest(".tabs");
-    const containerRect = container.getBoundingClientRect();
-    const btnRect = btn.getBoundingClientRect();
-    const offset = btnRect.left - containerRect.left - parseFloat(getComputedStyle(container).paddingLeft);
+function moveSlider(btn) {
+  if (!slider || !btn) return;
+  const container = btn.closest(".tabs");
+  const containerRect = container.getBoundingClientRect();
+  const btnRect = btn.getBoundingClientRect();
+  const offset = btnRect.left - containerRect.left - parseFloat(getComputedStyle(container).paddingLeft);
 
-    slider.style.width = btnRect.width + "px";
-    slider.style.transform = `translateX(${offset}px)`;
+  slider.style.width = btnRect.width + "px";
+  slider.style.transform = `translateX(${offset}px)`;
 }
 
-window.addEventListener("load",()=>{
+window.addEventListener("load", () => {
 
-    moveSlider(document.querySelector(".tab.active"));
+  moveSlider(document.querySelector(".tab.active"));
 
 });
 
-window.addEventListener("resize",()=>{
+window.addEventListener("resize", () => {
 
-    moveSlider(document.querySelector(".tab.active"));
+  moveSlider(document.querySelector(".tab.active"));
 
 });
