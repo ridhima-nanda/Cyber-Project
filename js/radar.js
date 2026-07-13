@@ -52,28 +52,28 @@ function initRadar(canvas) {
 
   setInterval(createBlip, 700);
 
- function drawBackground() {
+  function drawBackground() {
 
-  const bg = ctx.createRadialGradient(
-    centerX,
-    centerY,
-    0,
-    centerX,
-    centerY,
-    radius
-  );
+    const bg = ctx.createRadialGradient(
+      centerX,
+      centerY,
+      0,
+      centerX,
+      centerY,
+      radius
+    );
 
-  bg.addColorStop(0, "#11396777");   // Center
-  bg.addColorStop(0.45, "#07111d");
-  bg.addColorStop(1, "#020408");   // Edges
+    bg.addColorStop(0, "rgba(62, 53, 142, 0.51)");   // Center — violet glow
+    bg.addColorStop(0.45, "#070a14");
+    bg.addColorStop(1, "#030508");   // Edges
 
-  ctx.fillStyle = bg;
-  ctx.fillRect(0, 0, width, height);
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, width, height);
 
-}
+  }
 
   function drawGrid() {
-    ctx.strokeStyle = "rgba(90, 181, 255, 0.59)";
+    ctx.strokeStyle = "rgba(80, 70, 170, 0.4)";
     ctx.lineWidth = 0.8;
     for (let i = 1; i <= 8; i++) {
       ctx.beginPath();
@@ -90,20 +90,20 @@ function initRadar(canvas) {
 
     const spokes = 8; // 8 = every 45°, 16 = every 22.5°
 
-ctx.beginPath();
+    ctx.beginPath();
 
-for (let i = 0; i < spokes; i++) {
-  const angle = (Math.PI * 2 * i) / spokes;
+    for (let i = 0; i < spokes; i++) {
+      const angle = (Math.PI * 2 * i) / spokes;
 
-  ctx.moveTo(centerX, centerY);
+      ctx.moveTo(centerX, centerY);
 
-  ctx.lineTo(
-    centerX + Math.cos(angle) * radius,
-    centerY + Math.sin(angle) * radius
-  );
-}
+      ctx.lineTo(
+        centerX + Math.cos(angle) * radius,
+        centerY + Math.sin(angle) * radius
+      );
+    }
 
-ctx.stroke();
+    ctx.stroke();
   }
 
   function drawSweep() {
@@ -112,9 +112,9 @@ ctx.stroke();
     ctx.rotate(sweepAngle);
     const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, radius);
 
-gradient.addColorStop(0.0, "rgba(80,154,237,0.55)");
-gradient.addColorStop(0.4, "rgba(80,154,237,0.25)");
-gradient.addColorStop(1.0, "rgba(80,154,237,0)");
+    gradient.addColorStop(0.0, "rgba(114,99,255,0.55)");
+    gradient.addColorStop(0.4, "rgba(114,99,255,0.25)");
+    gradient.addColorStop(1.0, "rgba(114,99,255,0)");
 
     ctx.fillStyle = gradient;
 
@@ -181,7 +181,7 @@ gradient.addColorStop(1.0, "rgba(80,154,237,0)");
       ctx.beginPath();
 
       ctx.fillStyle =
-        `rgba(120,220,255,${blip.alpha * intensity})`;
+        `rgba(53,229,224,${blip.alpha * intensity})`;
 
       ctx.arc(
         x,
@@ -198,19 +198,19 @@ gradient.addColorStop(1.0, "rgba(80,154,237,0)");
 
   function drawCenter() {
 
-  ctx.beginPath();
+    ctx.beginPath();
 
-  ctx.fillStyle = "#509aed";
+    ctx.fillStyle = "#7263ff";
 
-  ctx.arc(
-    centerX,
-    centerY,
-    24, // Same radius as the old glow
-    0,
-    Math.PI * 2
-  );
+    ctx.arc(
+      centerX,
+      centerY,
+      24, // Same radius as the old glow
+      0,
+      Math.PI * 2
+    );
 
-  ctx.fill();
+    ctx.fill();
 
   }
 
