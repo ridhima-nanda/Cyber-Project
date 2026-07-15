@@ -993,6 +993,23 @@ html[data-theme="light"] .alert-row:hover {
   border-bottom: none;
 }
 
+/* Cyber Intel specific animations */
+@keyframes slideInRightFade {
+  0% {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.intel-row {
+  opacity: 0;
+  animation: slideInRightFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 .alert-row .dot {
   width: 9px;
   height: 9px;

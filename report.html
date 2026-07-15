@@ -567,23 +567,20 @@
     // intel
     const i = report.intel;
     document.getElementById("intel-list").innerHTML = `
-  ${row("Domain name", i.domain)}
-  ${row("Domain age", i.age)}
-  ${row("Confidence score", i.confidence)}
-  ${row("IP address", i.ip)}
-  ${row("Threat count", i.threat)}
-  ${row("Expiration duration", i.expiration)}`;
+  ${row("Domain name", i.domain, 0)}
+  ${row("Domain age", i.age, 1)}
+  ${row("Confidence score", i.confidence, 2)}
+  ${row("IP address", i.ip, 3)}
+  ${row("Threat count", i.threat, 4)}
+  ${row("Expiration duration", i.expiration, 5)}`;
 
     document.getElementById("rep-list").innerHTML = `
-  ${row("Brand Similarity", i.brandSimilarity)}
-  ${row("Fake Characters", i.fakeCharacters)}
-  ${row("URL Shortener Used", i.urlShortener)}
-  ${row("Host Reputation", i.reputation)}`;
+  ${row("Brand Similarity", i.brandSimilarity, 0)}
+  ${row("Fake Characters", i.fakeCharacters, 1)}
+  ${row("URL Shortener Used", i.urlShortener, 2)}
+  ${row("Host Reputation", i.reputation, 3)}`;
 
-    function row(k, v) {
-      return `<div class="alert-row"><span class="muted">${k}</span><span class="time" style="color:var(--text)">${v}</span></div>`;
-    }
-    function row(k, v) {
+    function row(k, v, idx) {
       const safeValues = ["Safe", "No", "Not Detected"];
       const dangerValues = ["Unsafe", "Yes", "Detected"];
 
@@ -597,8 +594,11 @@
         value = `<span class="time" style="color:var(--text)">${v}</span>`;
       }
 
+      let classes = idx !== undefined ? "alert-row intel-row" : "alert-row";
+      let style = idx !== undefined ? `style="animation-delay: ${idx * 0.1}s"` : "";
+
       return `
-    <div class="alert-row">
+    <div class="${classes}" ${style}>
       <span class="muted">${k}</span>
       ${value}
     </div>
